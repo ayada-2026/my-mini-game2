@@ -298,7 +298,6 @@ function renderChoices(scenario) {
     button.className = "choice-button";
     button.innerHTML = `
       <strong>${index + 1}) ${choice.text}</strong>
-      <span class="choice-meta">${choice.gainText}</span>
     `;
     button.addEventListener("click", () => applyChoice(button, choice));
     choices.appendChild(button);
@@ -388,3 +387,5 @@ restartButton.addEventListener("click", resetGame);
 playAgainButton.addEventListener("click", resetGame);
 
 resetGame();
+
+
