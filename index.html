@@ -1,0 +1,113 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#d4edb8">
+  <title>관계 반응 테스트</title>
+  <link rel="stylesheet" href="./static/choice-game.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <p class="eyebrow">10~30초 성향 플레이</p>
+      <div class="hero-top">
+        <div>
+          <h1>짧은 상황에서<br>나는 어떻게 반응할까</h1>
+          <p class="hero-copy">
+            매 턴마다 짧은 상황이 주어집니다. 선택은 빠르지만,
+            인내, 표현, 거리두기는 조용히 쌓입니다.
+          </p>
+        </div>
+        <button id="restartButton" class="ghost-button" type="button">새 판 시작</button>
+      </div>
+
+      <div class="status-strip">
+        <div class="status-chip">
+          <span class="status-label">진행</span>
+          <strong id="turnText">1 / 10</strong>
+        </div>
+        <div class="status-chip">
+          <span class="status-label">이번 판 길이</span>
+          <strong id="totalTurnsText">10턴</strong>
+        </div>
+        <div class="status-chip accent-chip">
+          <span class="status-label">현재 흐름</span>
+          <strong id="feedbackText">아직 뚜렷한 결은 없습니다.</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="play-grid">
+      <article class="scenario-card">
+        <div class="card-heading">
+          <p class="section-kicker">상황</p>
+          <span class="turn-badge" id="turnBadge">TURN 1</span>
+        </div>
+        <p id="scenarioText" class="scenario-text"></p>
+        <div id="choices" class="choice-list" aria-live="polite"></div>
+      </article>
+
+      <aside class="side-panel">
+        <section class="meter-card">
+          <div class="card-heading">
+            <p class="section-kicker">내부 변화</p>
+          </div>
+
+          <div class="meter-group">
+            <div class="meter-row">
+              <div>
+                <strong>patience</strong>
+                <span>인내</span>
+              </div>
+              <strong id="patienceValue">0</strong>
+            </div>
+            <div class="meter-track"><div id="patienceBar" class="meter-fill patience-fill"></div></div>
+          </div>
+
+          <div class="meter-group">
+            <div class="meter-row">
+              <div>
+                <strong>assertiveness</strong>
+                <span>표현</span>
+              </div>
+              <strong id="assertivenessValue">0</strong>
+            </div>
+            <div class="meter-track"><div id="assertivenessBar" class="meter-fill assertiveness-fill"></div></div>
+          </div>
+
+          <div class="meter-group">
+            <div class="meter-row">
+              <div>
+                <strong>distance</strong>
+                <span>거리두기</span>
+              </div>
+              <strong id="distanceValue">0</strong>
+            </div>
+            <div class="meter-track"><div id="distanceBar" class="meter-fill distance-fill"></div></div>
+          </div>
+
+          <div class="insight-card" aria-live="polite">
+            <p id="insightText" class="insight-text">선택하면 이 자리에 그 반응의 한 문장이 남습니다.</p>
+            <p id="insightMeta" class="insight-meta">아직 추가된 변화 없음</p>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section id="resultCard" class="result-card hidden" aria-live="polite">
+      <div class="result-copy">
+        <p class="section-kicker">결과</p>
+        <h2 id="resultTitle"></h2>
+        <p id="resultDescription" class="result-description"></p>
+      </div>
+      <div class="result-summary">
+        <p id="resultSummary" class="summary-box"></p>
+        <button id="playAgainButton" class="play-button" type="button">한 판 더 하기</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="./static/choice-game.js" defer></script>
+</body>
+</html>
